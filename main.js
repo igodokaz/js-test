@@ -96,15 +96,26 @@
 // 반복문 (for statenent) ????????
 // for (시작조건; 종료조건; 변화조건) {}
 
-const ulEl = document.querySelector("ul");
+// const ulEl = document.querySelector("ul");
 
-for (let i = 0; i < 10; i += 1) {
-  const li = document.createElement("li");
-  li.textContent = "list-${i + 1}";
-  if ((i + 1) % 2 === 0) {
-    li.addEventListener("click", function () {
-      console.log(li.textContent);
-    });
+// for (let i = 0; i < 10; i += 1) {
+//   const li = document.createElement("li");
+//   li.textContent = "list-${i + 1}";
+//   if ((i + 1) % 2 === 0) {
+//     li.addEventListener("click", function () {
+//       console.log(li.textContent);
+//     });
+//   }
+//   ulEl.appendChild(li);
+// }
+
+// 변수 유효범위 (variable scope)
+// var(함수 내의 유효범위, 관리어려움 잘 안씀), let, const(블록단위 유효범위)
+
+function scope() {
+  if (true) {
+    var a = 123;
+    console.log(a);
   }
-  ulEl.appendChild(li);
 }
+scope();
