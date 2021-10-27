@@ -29,20 +29,71 @@
 
 // class 설명
 
-function User(first, last) {
-  // 파스칼 케이스? U를 대문자로
-  this.firstName = first;
-  this.lastName = last;
-}
+// function User(first, last) {
+//   // 파스칼 케이스? U를 대문자로, 구조를 알아보기 쉬운 개발자들의 약속
+//   this.firstName = first;
+//   this.lastName = last;
+// }
 
-User.prototype.getFullName = function () {
-  return `${this.firstName} ${this.lastName}`;
+// User.prototype.getFullName = function () {
+//   return `${this.firstName} ${this.lastName}`;
+// };
+
+// const heropy = new User("Heropy", "Part"); // new, 생성자함수,
+// const amy = new User("Amy", "Clarke");
+// const neo = new User("Neo", "Smith");
+
+// console.log(heropy.getFullName());
+// console.log(amy.getFullName());
+// console.log(neo);
+
+// this
+// 일반(Normal) 함수는 '호출 위치'에서 따라 this 정의 !
+// 화살표(Arrow) 함수는 자신이 선언된 '함수 범위'에서 this 정의!
+
+// const heropy = {
+//   name: "Heropy",
+//   normal: function () {
+//     console.log(this.name);
+//   },
+//   arrow: () => {
+//     console.log(this.name);
+//   },
+// };
+// heropy.normal();
+// heropy.arrow(); // undefined
+
+// const amy = {
+//   name: "Amy",
+//   normal: heropy.normal, // heropy의 normal을 호출, 그것을 다시 amy의 normal로 호출
+//   arrow: heropy.arrow,
+// };
+// amy.normal();
+// amy.arrow();
+
+// function User(name) {
+//   // 파스칼 케이스, 생성자 함수 유추
+//   this.name = name;
+// }
+// User.prototype.normal = function () {
+//   console.log(this.name);
+// };
+// User.prototype.arrow = () => {
+//   console.log(this.name);
+// };
+
+// const heropy = new User("Heropy");
+
+// heropy.normal(); // Heropy가 곧 this
+// heropy.arrow(); // 함수 전체범위에서 this가 특정되지 않음
+
+const timer = {
+  name: "Heropy!!", // 속성
+  timeout: function () {
+    // setTimeout(function () { // 일반함수이기 때문에 setTimeout이 어딘가에서 실행된다
+    setTimeout(() => {
+      console.log(this.name);
+    }, 2000);
+  },
 };
-
-const heropy = new User("Heropy", "Part"); // 생성자함수
-const amy = new User("Amy", "Clarke");
-const neo = new User("Neo", "Smith");
-
-console.log(heropy.getFullName());
-console.log(amy.getFullName());
-console.log(neo);
+timer.timeout();
