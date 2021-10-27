@@ -37,9 +37,28 @@
 // }
 // console.log(sum(1, 3));
 
-function sum() {
-  console.log(arguments);
-  return arguments[0] + arguments[1]; // 인수가 많은 경우 활용, 일괄적 활용, 많이 사용 안됨
-}
+// function sum() {
+//   console.log(arguments);
+//   return arguments[0] + arguments[1]; // 인수가 많은 경우 활용, 일괄적 활용, 많이 사용 안됨
+// }
 
-console.log(sum(7, 3));
+// console.log(sum(7, 3));
+
+// 화살표 함수
+// () => {} vs function () {}
+
+const double = function (x) {
+  return x * 2;
+};
+console.log("double: ", double(7));
+
+// const doubleArrow = (x) => {
+//   return x * 2;
+// };
+// console.log("doubleArrow", doubleArrow(7));
+
+const doubleArrow = (x) => null;
+console.log("doubleArrow: ", doubleArrow(7));
+
+// const doubleArrow = (x) => ({ name: "Heropy" }); // 문자, 숫자, true/f, null, undefined, []배열데이터도 됨
+// console.log("doubleArrow", doubleArrow(7));
