@@ -87,13 +87,59 @@
 // heropy.normal(); // Heropy가 곧 this
 // heropy.arrow(); // 함수 전체범위에서 this가 특정되지 않음
 
-const timer = {
-  name: "Heropy!!", // 속성
-  timeout: function () {
-    // setTimeout(function () { // 일반함수이기 때문에 setTimeout이 어딘가에서 실행된다
-    setTimeout(() => {
-      console.log(this.name);
-    }, 2000);
-  },
-};
-timer.timeout();
+// const timer = {
+//   name: "Heropy!!", // 속성
+//   timeout: function () {
+//     // setTimeout(function () { // 일반함수이기 때문에 setTimeout이 어딘가에서 실행된다
+//     setTimeout(() => { // timeout 함수범위에 있기 때문에, 그곳에서 this가 정의됨
+//       console.log(this.name);
+//     }, 2000);
+//   },
+// };
+// timer.timeout();
+
+// ES6 Classes
+
+// const heropy = {
+//   name: "Heropy",
+//   // normal: function () {
+//   normal() { // 생략 가능
+//     console.log(this.name);
+//   },
+//   arrow: () => {
+//     console.log(this.name);
+//   },
+// };
+
+// heropy.normal();
+// heropy.arrow();
+
+// ES6 class 도입전
+// function User(first, last) {
+//   this.firstName = first;
+//   this.lastName = last;
+// }
+
+// User.prototype.getFullName = function () {
+//   return `${this.firstName} ${this.lastName}`;
+// };
+
+// ES6 Class 도입
+
+class User {
+  constructor(first, last) {
+    this.firstName = first;
+    this.lastName = last;
+  }
+  getFullName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+}
+
+const heropy = new User("Heropy", "Park");
+const amy = new User("Amy", "Clarke");
+const neo = new User("Neo", "Smith");
+
+console.log(heropy);
+console.log(amy.getFullName());
+console.log(neo.getFullName());
