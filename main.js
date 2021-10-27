@@ -47,18 +47,31 @@
 // 화살표 함수
 // () => {} vs function () {}
 
-const double = function (x) {
-  return x * 2;
-};
-console.log("double: ", double(7));
+// const double = function (x) {
+//   return x * 2;
+// };
+// console.log("double: ", double(7));
 
 // const doubleArrow = (x) => {
 //   return x * 2;
 // };
 // console.log("doubleArrow", doubleArrow(7));
 
-const doubleArrow = (x) => null;
-console.log("doubleArrow: ", doubleArrow(7));
+// const doubleArrow = (x) => null;
+// console.log("doubleArrow: ", doubleArrow(7));
 
 // const doubleArrow = (x) => ({ name: "Heropy" }); // 문자, 숫자, true/f, null, undefined, []배열데이터도 됨
 // console.log("doubleArrow", doubleArrow(7));
+
+// 즉시실행함수
+// IIFE, Immediately-Invoked Function Expression
+
+const a = 7;
+function double() {
+  console.log(a * 2);
+}
+double();
+
+(function () {
+  console.log(a * 2);
+})();
