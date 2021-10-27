@@ -114,11 +114,26 @@
 //   clearTimeout(timer);
 // });
 
-const timer = setInterval(() => {
-  console.log("Heropy!");
-}, 3000);
+// const timer = setInterval(() => {
+//   console.log("Heropy!");
+// }, 3000);
 
-const h1El = document.querySelector("h1");
-h1El.addEventListener("click", () => {
-  clearInterval(timer);
+// const h1El = document.querySelector("h1");
+// h1El.addEventListener("click", () => {
+//   clearInterval(timer);
+// });
+
+// 콜백(Callback)
+// 함수의 인수로 사용되는 함수
+
+// setTimeout(함수, 시간)
+
+function timeout(cb) {
+  setTimeout(() => {
+    console.log("Heropy!");
+    cb();
+  }, 3000);
+}
+timeout(() => {
+  console.log("Done!");
 });
