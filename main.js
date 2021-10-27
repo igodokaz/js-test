@@ -66,12 +66,31 @@
 // 즉시실행함수
 // IIFE, Immediately-Invoked Function Expression
 
-const a = 7;
-function double() {
-  console.log(a * 2);
-}
-double();
+// const a = 7;
+// function double() {
+//   console.log(a * 2);
+// }
+// double();
 
-(function () {
-  console.log(a * 2);
-})();
+// (function () {
+//   console.log(a * 2);
+// })(); // ()) 도 가능, prettier가 자동 변환
+
+// 호이스팅 (Hoisting)
+// 함수 선언부가 유효범위 최상단으로 끌어올려지는 현상
+
+// 실행불가
+// const a = 7;
+// double();
+
+// const double = function () {
+//   console.log(a * 2);
+// };
+
+//실행 가능
+// const a = 7;
+// double();
+
+// function double() {
+//   console.log(a * 2);
+// }
